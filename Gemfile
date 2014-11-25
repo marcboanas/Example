@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.3'
 
-gem 'delayed_job_active_record', '>= 4.0.0'
+gem 'delayed_job_active_record'
 gem 'email_validator'
 gem 'geocoder'
 gem 'jbuilder'
@@ -11,6 +11,11 @@ gem 'rack-timeout'
 gem 'rails'
 gem 'recipient_interceptor'
 gem 'unicorn'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'turbolinks'
 
 group :development do
   gem 'better_errors'
@@ -21,7 +26,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'rspec-rails', '>= 2.14'
+  gem 'rspec-rails'
 end
 
 group :test do
