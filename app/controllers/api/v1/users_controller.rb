@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApiController
-#   before_filter :authorize_app_secret, only: [:create]
+before_filter :authorize_app_secret, only: [:create]
 
   def create
     authorize do |user|
