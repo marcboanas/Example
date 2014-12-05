@@ -16,6 +16,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'bcrypt'
+gem 'rspec-its'
 
 group :development do
   gem 'better_errors'

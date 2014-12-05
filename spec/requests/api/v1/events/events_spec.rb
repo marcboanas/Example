@@ -27,7 +27,7 @@ describe 'POST /v1/events' do
   it 'saves the address, lat, lon, name, owner, and started_at date' do
     date = Time.zone.now
     device_token = '123abcd456xyz'
-    owner = create(:user, device_token: device_token)
+    owner = create(:user, device_token: device_token, name: "Test", email: "test123@test123.com", password: "password123", password_confirmation: "password123")
 
     post '/v1/events', {
       address: '123 Example St.',

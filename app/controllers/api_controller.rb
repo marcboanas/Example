@@ -2,11 +2,11 @@ class ApiController < ApplicationController
   protect_from_forgery with: :null_session
 
   def authorize
-    if authorization_token
-      yield User.find_or_initialize_by(device_token: authorization_token)
-    else
-      render nothing: true, status: 401
-    end
+#     if authorization_token
+#       yield User.find_or_initialize_by(device_token: authorization_token)
+#     else
+#       render nothing: true, status: 401
+#     end
   end
 
   private

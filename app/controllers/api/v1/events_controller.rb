@@ -1,6 +1,6 @@
 class Api::V1::EventsController < ApiController
   def create
-   authorize do |user|
+    authorize do |user|
       @user = user
       @event = Event.new(event_params)
 
@@ -12,7 +12,7 @@ class Api::V1::EventsController < ApiController
           errors: @event.errors.full_messages
         }, status: 422
       end
-   end
+    end
   end
 
   def show

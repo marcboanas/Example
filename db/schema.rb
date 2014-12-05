@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126121222) do
+ActiveRecord::Schema.define(version: 20141205141923) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -44,9 +44,13 @@ ActiveRecord::Schema.define(version: 20141126121222) do
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "users", force: true do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "device_token"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "auth_token"
   end
 
   add_index "users", ["device_token"], name: "index_users_on_device_token", unique: true
