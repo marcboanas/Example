@@ -54,6 +54,6 @@ before_filter :authorize_app_secret, only: [:create]
   end
 
   def correct_app_secret?
-    request.headers['tb-app-secret'] == ENV.fetch('TB_APP_SECRET') || "your884213OwnUniqueAppSecretThatYouShouldRandomlyGenerateAndKeepSecret"
+    request.headers['tb-app-secret'] == "secret"
   end
 end
