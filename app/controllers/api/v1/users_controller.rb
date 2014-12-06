@@ -24,7 +24,7 @@ before_filter :authorize_app_secret, only: [:create]
     else
       render json: {
         message: 'Validation Failed',
-        errors: @event.errors.full_messages
+        errors: @user.errors.full_messages
       }, status: 422
     end
   end
