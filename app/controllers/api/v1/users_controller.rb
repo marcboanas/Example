@@ -1,21 +1,6 @@
 class Api::V1::UsersController < ApiController
 before_filter :authorize_app_secret, only: [:create]
 
-#   def create
-#     authorize do |user|
-#       @user = user
-
-#       if @user.save
-#         render
-#       else
-#         render json: {
-#           message: 'Validation Failed',
-#           errors: @user.errors.full_messages
-#         }, status: 422
-#       end
-#     end
-#   end
-  
   def create
     @user = User.new(user_params)
     
@@ -54,6 +39,6 @@ before_filter :authorize_app_secret, only: [:create]
   end
 
   def correct_app_secret?
-    request.headers['tb-app-secret'] == "secret"
+    request.headers['app-secret'] == "secret"
   end
 end
