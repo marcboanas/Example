@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  validates :device_token, uniqueness: true, allow_blank: true
   validates :name, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -7,11 +6,12 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_secure_password
+  before_save { self.email = email.downcase }
   before_save :ensure_authentication_token
   
   def ensure_authentication_token
-    if authentication_token.blank?
-      self.authentication_token = generate_authentication_token
+    if auth_token.blank?
+      self.auth_token = generate_authentication_token
     end
   end
  

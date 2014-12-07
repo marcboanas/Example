@@ -86,7 +86,7 @@ describe 'PATCH /v1/events/:id' do
         id: event.owner.id
       }
     }.to_json,
-    set_headers(event.owner.device_token)
+    set_headers(event.owner.auth_token)
 
     event = event.reload
     expect(event.name).to eq new_name
@@ -104,10 +104,10 @@ describe 'PATCH /v1/events/:id' do
       name: nil,
       started_at: event.started_at,
       owner: {
-        id: event.owner.id
+        auth_token: event.owner.auth_token
       }
     }.to_json,
-    set_headers(event.owner.device_token)
+    set_headers(event.owner.auth_token)
 
     event = event.reload
     expect(event.name).to_not be nil
